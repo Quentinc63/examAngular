@@ -1,45 +1,46 @@
 <div class="col-12">
   <div class="card shadow-sm border-0 rounded-4 overflow-hidden flex-row flex-wrap align-items-stretch">
-
-    <!-- Image produit -->
     <div class="col-12 col-md-5 col-lg-4 p-0">
-      <img
-        [src]="product.image"
-        [alt]="product.title"
-        class="img-fluid w-100 h-100 object-fit-cover"
+      <img [src]="product.image" [alt]="product.title" class="img-fluid w-100 h-100 object-fit-cover"
         style="min-height: 250px;" />
     </div>
-
-    <!-- Contenu -->
     <div class="col-12 col-md-7 col-lg-8 d-flex flex-column p-4">
-
-      <!-- Titre & Description -->
       <div class="mb-3">
         <h5 class="card-title text-primary fw-semibold mb-2">{{ product.title }}</h5>
         <p class="card-text text-muted small mb-0">{{ product.description }}</p>
       </div>
-
-      <!-- Caractéristiques (features) -->
       <div class="mb-4">
         @for (feature of product.features; track feature.title) {
-          <div class="d-flex align-items-center mb-2">
-            <i [class]="feature.icon"></i>
-            <span class="text-muted small">
-              {{ feature.title }}: {{ feature.description }}
-            </span>
-          </div>
+        <div class="d-flex align-items-center mb-2">
+          <i [class]="feature.icon"></i>
+          <span class="text-muted small">
+            {{ feature.title }}: {{ feature.description }}
+          </span>
+        </div>
         } @empty {
-          <div class="text-muted small fst-italic">Aucune caractéristique disponible.</div>
+        <div class="text-muted small fst-italic">Aucune caractéristique disponible.</div>
         }
       </div>
-
-      <!-- Footer : Prix + bouton -->
       <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
         <div>
           <span class="fw-semibold me-1">Prix :</span>
-          <span class="text-success">{{ product.fullPrice | currency }}</span>
+          @if (product.discountPercent && product.discountPercent > 0) {
+          <span class="text-muted text-decoration-line-through me-2">
+            {{ product.fullPrice | currency:'EUR' }}
+          </span>
+          <span class="text-danger fw-bold me-2">
+            {{ (product.fullPrice * (1 - product.discountPercent)) | currency:'EUR' }}
+          </span>
+          <span class="badge bg-danger rounded-pill">
+            -{{ (product.discountPercent * 100) | number:'1.0-0' }}%
+          </span>
+          } @else {
+          <span class="text-success">{{ product.fullPrice | currency:'EUR' }}</span>
+          }
         </div>
-        <button class="btn btn-outline-primary rounded-pill px-4">Détail</button>
+        <button class="btn btn-sm btn-primary rounded-pill px-3" (click)="addToCart()">
+          <i class="bi bi-cart-plus me-1"></i> Ajouter
+        </button>
       </div>
 
     </div>

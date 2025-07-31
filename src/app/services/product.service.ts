@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 export class ProductService {
   constructor() { }
 
-  //Renvoie un Observable après 2sec de délai qui contient un tableau d'article, simulation d'un appel API
   getAll(): Observable<any[]> {
     return new Observable(observer => {
       setTimeout(() => {
@@ -91,7 +90,7 @@ export class ProductService {
               { title: "Humidificateur", description: "Ajoute de l'humidité", icon: "water_drop" }
             ]
           },
-         
+
           {
             id: 8,
             title: "Ventilateur Industriel 75cm",

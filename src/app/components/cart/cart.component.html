@@ -1,0 +1,23 @@
+<div class="container my-4">
+    <h2 class="mb-4">Mon Panier</h2>
+
+    @if (cartItems.length > 0) {
+    <div class="list-group">
+        @for (product of cartItems; track product.id) {
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-1">{{ product.title }}</h5>
+                <small class="text-muted">{{ product.fullPrice | currency:'EUR' }}</small>
+            </div>
+            <button class="btn btn-sm btn-danger" (click)="removeItem(product.id)">
+                <i class="bi bi-trash"></i> Supprimer
+            </button>
+        </div>
+        }
+    </div>
+    } @else {
+    <div class="alert alert-info text-center">
+        Votre panier est vide.
+    </div>
+    }
+</div>

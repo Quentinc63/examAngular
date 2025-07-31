@@ -1,0 +1,10 @@
+<form [formGroup]="filterForm" class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+    <input type="text" formControlName="text" placeholder="Rechercher un produit..." class="form-control"
+        style="width: 250px;" />
+
+    <select formControlName="category" class="form-select" aria-label="Filtrer par catégorie" style="width: 180px;">
+        @for (categorie of categories; track categorie.value) {
+        <option [value]="categorie.value">{{ categorie.label }}</option>
+        }
+    </select>
+</form>

@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #e9ecef;
+    color: #212529;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.text-primary {
+    color: #343a40 !important;
+}
+
+.btn-primary {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #23272b;
+
+    border-color: #23272b;
+    color: #fff;
+}
+
+.btn-outline-primary {
+    color: #343a40;
+    border-color: #343a40;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: #343a40;
+    color: #fff;
+    border-color: #23272b;
+}

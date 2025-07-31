@@ -1,13 +1,31 @@
-<div class="row g-4 mt-4 mb-4">
-  @for (product of productArray; track product.id) {
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <app-card-product [product]="product"></app-card-product>
+<app-product-filter (filterChange)="onFilterChange($event)"></app-product-filter>
+
+@if (loading){
+<div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+  <img src="https://static.wixstatic.com/media/68315b_30dbad1140034a3da3c59278654e1655~mv2.gif" alt="spinner"
+    class="img-fluid" style="max-height: 100px;">
+</div>
+} @else if (filteredProducts) {
+
+<div class="container mt-4 mb-4">
+  <div class="row g-4">
+    @for (product of filteredProducts; track product.id) {
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+      <app-card-product [product]="product" class="w-100"></app-card-product>
     </div>
-  } @empty {
+    } @empty {
     <div class="col-12">
       <div class="alert alert-warning text-center py-4" role="alert">
-        😢 Aucun produit disponible pour le moment.
+        Aucun produit disponible pour le moment
       </div>
     </div>
-  }
+    }
+  </div>
 </div>
+
+} @else {
+<div class="alert alert-danger text-center py-5">
+  <h2 class="display-6">Pas de produits</h2>
+  <p class="lead">Desole pas de produits</p>
+</div>
+}

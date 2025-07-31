@@ -1,27 +1,30 @@
-# ExamAngular
+# ExamAngular Quentin Cas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.20.
 
-## Development server
+## Logique de l'application
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Ta fausse appel api est dans Product service.
 
-## Code scaffolding
+Tout ce qui est en rapport avec la carte j'ai un service dédié ou je stock dans le local storage.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+j'ai crée 2 interfaces pour les produits et leurs features.
 
-## Build
+normalement chaque composent est bien nommé et facilement identifiable.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+J'ai fais du bootstrap pour le style.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Problemes rencontrés
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Mon probleme actuelle et j'ai la flemme parceque il est tard , mais j'assume j'ai pas voulu perdre du temps dessus c'est le fait que les icones des features ne marchent pas.
 
-## Further help
+## Lancement du projet
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Tu connais je t'apprend rien 
+
+npm i 
+
+ng serve 
+
+Si t'as le moindre soucis tu peux me contacter par discord

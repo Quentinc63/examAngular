@@ -1,1 +1,37 @@
-<p>home works!</p>
+<section class="bg-light py-5 border-bottom">
+    <div class="container text-center">
+        <h1 class="display-5 fw-bold text-primary mb-3">Bienvenue chez QuentinClim</h1>
+        <p class="lead text-muted mx-auto" style="max-width: 800px;">
+            Experts du confort thermique, QuentinClim vous propose les meilleurs <strong>climatiseurs</strong>,
+            <strong>ventilateurs</strong> et <strong>refroidisseurs d'air</strong> pour traverser chaque saison avec
+            fraîcheur.
+        </p>
+        <p class="text-muted mt-3">
+            Qualité, performance et économies d'énergie sont notre engagement au quotidien. Explorez nos offres
+            exclusives du moment !
+        </p>
+    </div>
+</section>
+
+@if (loading) {
+<div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+    <img src="https://static.wixstatic.com/media/68315b_30dbad1140034a3da3c59278654e1655~mv2.gif" alt="spinner"
+        class="img-fluid" style="max-height: 100px;">
+</div>
+} @else if (topDiscountProducts.length > 0) {
+<div class="container my-5">
+    <h2 class="mb-4 text-center"> Nos meilleures offres</h2>
+    <div class="row g-4">
+        @for (product of topDiscountProducts; track product.id) {
+        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+            <app-card-product [product]="product" class="w-100"></app-card-product>
+        </div>
+        }
+    </div>
+</div>
+} @else {
+<div class="alert alert-warning text-center py-5">
+    <h2 class="display-6">Aucune promotion pour le moment</h2>
+    <p class="lead">Revenez bientôt pour découvrir nos meilleures offres.</p>
+</div>
+}
