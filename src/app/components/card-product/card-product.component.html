@@ -12,7 +12,7 @@
       <div class="mb-4">
         @for (feature of product.features; track feature.title) {
         <div class="d-flex align-items-center mb-2">
-          <i [class]="feature.icon"></i>
+          <i [class]="'material-icons'">{{feature.icon}}</i>
           <span class="text-muted small">
             {{ feature.title }}: {{ feature.description }}
           </span>

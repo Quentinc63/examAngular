@@ -10,7 +10,7 @@
 <div class="container mt-4 mb-4">
   <div class="row g-4">
     @for (product of filteredProducts; track product.id) {
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+    <div class="col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center">
       <app-card-product [product]="product" class="w-100"></app-card-product>
     </div>
     } @empty {
